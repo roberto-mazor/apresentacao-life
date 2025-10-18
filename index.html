@@ -7,13 +7,24 @@
     <title>Lifelong Learning</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/reset.css">
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/reveal.css">
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/theme/simple.css" id="theme">
 
     <link rel="stylesheet" href="style.css">
+    
 </head>
 
 <body>
+    <button id="themeToggle" 
+            style="position: fixed; top: 10px; right: 10px; z-index: 1000; 
+                   padding: 10px; border: none; border-radius: 5px; 
+                   cursor: pointer; background-color: #0056b3; color: white;">
+        Tema Escuro 🌙
+    </button>
+    
+    <div class="reveal">
 
     <div class="reveal">
         <div class="slides">
@@ -241,7 +252,7 @@ Reveal.initialize({
         // =========================================================
         
         // Largura/Altura padrão dos slides
-        width: 1200, 
+        width: 1500, 
         height: 800,
         
         // Define o fator de escala (ajusta automaticamente se o conteúdo for maior)

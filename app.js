@@ -1,3 +1,33 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const toggleButton = document.getElementById('themeToggle');
+    const revealElement = document.querySelector('.reveal');
+    const themeKey = 'presentation-theme';
+
+    // 1. Carregar o tema salvo
+    const savedTheme = localStorage.getItem(themeKey);
+    if (savedTheme === 'dark') {
+        revealElement.classList.add('dark-theme');
+        toggleButton.innerHTML = 'Tema Claro ☀️';
+    }
+
+    // 2. Adicionar o listener ao botão
+    toggleButton.addEventListener('click', () => {
+        // Alterna a classe
+        revealElement.classList.toggle('dark-theme');
+
+        // Atualiza o texto do botão e salva a preferência
+        if (revealElement.classList.contains('dark-theme')) {
+            toggleButton.innerHTML = 'Tema Claro ☀️';
+            localStorage.setItem(themeKey, 'dark');
+        } else {
+            toggleButton.innerHTML = 'Tema Escuro 🌙';
+            localStorage.setItem(themeKey, 'light');
+        }
+    });
+});
+
+
+
 // Exemplo de script.js simples para um pequeno efeito, caso não use Reveal.js fragments.
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -24,3 +54,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Você precisaria de um JavaScript muito mais complexo para gerenciar a navegação entre slides (botões, setas, etc.) se não usar o Reveal.js.
 });
+
