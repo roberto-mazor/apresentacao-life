@@ -222,19 +222,21 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/reveal.js"></script>
-    <script>
-        // Inicialização do Reveal.js
-        Reveal.initialize({
-            controls: true,
-            progress: true,
-            center: true,
-            hash: true,
-            transition: 'slide', // none/fade/slide/convex/concave/zoom
-            // Adicione plugins se necessário (ex: notes para ver as anotações do palestrante)
-            plugins: [RevealNotes],
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/plugin/notes/notes.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/reveal.js"></script>
+
+<script>
+    // Agora o RevealNotes estará definido, e o código funcionará
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
+        transition: 'slide',
+        plugins: [ RevealNotes ], // Deixe esta linha
+    });
+</script>
 
     <script src="app.js"></script>
 
