@@ -228,13 +228,32 @@
 
 <script>
     // Agora o RevealNotes estará definido, e o código funcionará
-    Reveal.initialize({
+Reveal.initialize({
         controls: true,
         progress: true,
         center: true,
         hash: true,
         transition: 'slide',
-        plugins: [ RevealNotes ], // Deixe esta linha
+        plugins: [ RevealNotes ],
+        
+        // =========================================================
+        // NOVOS AJUSTES PARA CABER O CONTEÚDO (Adicione ou altere)
+        // =========================================================
+        
+        // Largura/Altura padrão dos slides
+        width: 1200, 
+        height: 800,
+        
+        // Define o fator de escala (ajusta automaticamente se o conteúdo for maior)
+        // Um valor mais baixo, como 0.1, força a escala para baixo mais facilmente.
+        minScale: 0.1,
+        
+        // Margem extra na tela (mantém espaço nas bordas)
+        margin: 0.1, 
+        
+        // Garante que todo o slide se encaixe, mesmo que o conteúdo seja grande.
+        // Se ainda estiver cortando, tente definir 'data-auto-animate' em alguns slides
+        // ou remover a propriedade 'center: true' (embora seja bom mantê-la).
     });
 </script>
 
