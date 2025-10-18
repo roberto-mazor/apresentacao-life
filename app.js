@@ -1,57 +1,42 @@
 document.addEventListener('DOMContentLoaded', () => {
     const toggleButton = document.getElementById('themeToggle');
-    const revealElement = document.querySelector('.reveal');
-    const themeKey = 'presentation-theme';
+    
+    // Elementos de link dos temas
+    const lightThemeLink = document.getElementById('lightTheme');
+    const darkThemeLink = document.getElementById('darkTheme');
 
-    // 1. Carregar o tema salvo
-    const savedTheme = localStorage.getItem(themeKey);
-    if (savedTheme === 'dark') {
-        revealElement.classList.add('dark-theme');
-        toggleButton.innerHTML = 'Tema Claro ☀️';
+    // Chave para salvar a preferência
+    const themeKey = 'presentation-theme-file';
+
+    if (!toggleButton || !lightThemeLink || !darkThemeLink) {
+        console.error('Erro: Não foi possível encontrar o botão ou os links de tema.');
+        return;
     }
 
-    // 2. Adicionar o listener ao botão
-    toggleButton.addEventListener('click', () => {
-        // Alterna a classe
-        revealElement.classList.toggle('dark-theme');
-
-        // Atualiza o texto do botão e salva a preferência
-        if (revealElement.classList.contains('dark-theme')) {
+    // Função para aplicar o tema
+    function applyTheme(theme) {
+        if (theme === 'dark') {
+            lightThemeLink.disabled = true;
+            darkThemeLink.disabled = false;
             toggleButton.innerHTML = 'Tema Claro ☀️';
             localStorage.setItem(themeKey, 'dark');
         } else {
+            lightThemeLink.disabled = false;
+            darkThemeLink.disabled = true;
             toggleButton.innerHTML = 'Tema Escuro 🌙';
             localStorage.setItem(themeKey, 'light');
         }
+    }
+
+    // 1. Carregar o tema salvo
+    const savedTheme = localStorage.getItem(themeKey) || 'light';
+    applyTheme(savedTheme);
+
+
+    // 2. Adicionar o listener ao botão
+    toggleButton.addEventListener('click', () => {
+        const currentTheme = lightThemeLink.disabled ? 'dark' : 'light';
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        applyTheme(newTheme);
     });
 });
-
-
-
-// Exemplo de script.js simples para um pequeno efeito, caso não use Reveal.js fragments.
-
-document.addEventListener('DOMContentLoaded', () => {
-    // Esconde as respostas no slide de gancho inicialmente.
-    const respostas = document.querySelectorAll('.pergunta-interativa .resposta');
-    respostas.forEach(span => {
-        span.style.opacity = '0';
-        span.style.transition = 'opacity 0.5s ease-in-out';
-    });
-
-    // Função para revelar as respostas ao focar/clicar (simulando a transição do palestrante)
-    const perguntas = document.querySelectorAll('.pergunta-interativa');
-    perguntas.forEach(pergunta => {
-        pergunta.addEventListener('mouseover', () => {
-            pergunta.querySelector('.resposta').style.opacity = '1';
-        });
-        pergunta.addEventListener('mouseout', () => {
-            pergunta.querySelector('.resposta').style.opacity = '0';
-        });
-    });
-
-    // Nota de palco (apenas um exemplo, o Reveal.js já tem esse recurso)
-    console.log("Anotações do Slide 1 (Abertura): 'Boa tarde, pessoal! Eu sou o Henrique...'");
-
-    // Você precisaria de um JavaScript muito mais complexo para gerenciar a navegação entre slides (botões, setas, etc.) se não usar o Reveal.js.
-});
-

@@ -1,52 +1,13 @@
-/* ========================================================= */
-/* VARIÁVEIS DE TEMA E CONFIGURAÇÕES GLOBAIS */
-/* ========================================================= */
+/* CONFIGURAÇÕES GLOBAIS E LAYOUT BASE */
 
-/* Tema Claro (Padrão) */
 .reveal {
-    /* Cores de Fundo e Texto */
-    --background-color: #fff;
-    --text-color: #333;
-    --secondary-text-color: #666;
-    --border-color: #ddd;
-    
-    /* Cores Primárias e Secundárias (DESTAQUE) */
-    --primary-color: #0056b3;
-    --secondary-color: #28a745;
-    --tertiary-color: #dc3545;
-    --light-bg-color: #f8f9fa;
-    --yellow-accent: #ffc107;
-    
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-/* FORÇA O TEMA ESCURO NO CONTAINER REVEAL (MAIOR ESPECIFICIDADE) */
-.dark-theme.reveal { 
-    /* Variáveis do Dark Theme (para uso interno) */
-    --background-color: #1a1a1a;
-    --text-color: #eee;
-    --secondary-text-color: #aaa;
-    --border-color: #444;
-    --primary-color: #6da2e9;
-    --secondary-color: #72ff99;
-    --tertiary-color: #ff6060;
-    --light-bg-color: #2a2a2a;
-    --yellow-accent: #ffeb99;
-
-    /* APLICAÇÃO FORÇADA DE FUNDO E TEXTO */
-    background-color: var(--background-color) !important;
-    color: var(--text-color) !important;
-}
-
-
-/* ========================================================= */
-/* ESTILOS GLOBAIS E ESTRUTURA (USANDO VARIÁVEIS) */
-/* ========================================================= */
-
-/* Redefinição dos títulos principais (garante que usem a variável primária) */
+/* Deixe os títulos usarem as cores do tema nativo (black ou simple) */
 .reveal h1, .reveal h2, .reveal h3 {
-    text-transform: none;
-    color: var(--primary-color);
+    text-transform: none; 
+    /* color: herda do tema nativo agora */
 }
 
 .reveal section {
@@ -58,7 +19,6 @@
     margin-top: 10px;
     margin-bottom: 10px;
     line-height: 1.3;
-    color: var(--text-color); /* Usar variável para herdar a cor correta */
 }
 
 /* Slide 1: Abertura */
@@ -70,8 +30,7 @@
 
 .apresentadores {
     font-size: 1.2em;
-    color: var(--secondary-text-color);
-    margin-top: 20px;
+    /* Deixe o tema nativo definir esta cor para que contraste */
 }
 
 .meta-info {
@@ -79,7 +38,7 @@
     position: absolute;
     bottom: 20px;
     right: 5%;
-    color: var(--secondary-text-color);
+    /* Deixe o tema nativo definir esta cor */
 }
 
 /* Slide 2: Gancho */
@@ -91,16 +50,16 @@
 }
 
 .numero-stat {
-    color: var(--secondary-color);
+    color: #28a745; /* Cor verde para destaque (fixa) */
     font-size: 1.5em;
-    border-bottom: 2px solid var(--secondary-color);
+    border-bottom: 2px solid #28a745;
     padding-bottom: 5px;
     margin-bottom: 10px;
 }
 
 .pergunta-interativa {
-    background-color: var(--light-bg-color);
-    border-left: 5px solid var(--yellow-accent);
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo sutil, transparente, que funciona em ambos */
+    border-left: 5px solid #ffc107;
     padding: 15px;
     margin: 15px 0;
     font-size: 1.1em;
@@ -108,15 +67,15 @@
 
 .pergunta-interativa .resposta {
     font-style: italic;
-    color: var(--secondary-text-color);
+    /* Deixe a cor herdar para o contraste */
 }
 
 /* Slide 3: Definição */
 .citacao-definicao {
     font-size: 1.5em;
     font-style: italic;
-    color: var(--text-color);
-    border-left: 5px solid var(--primary-color);
+    /* Deixe a cor do texto herdar */
+    border-left: 5px solid #0056b3;
     padding-left: 20px;
     margin: 30px 0;
 }
@@ -129,12 +88,12 @@
 
 .beneficio-item {
     padding: 15px;
-    border: 1px solid var(--border-color);
+    border: 1px solid currentColor; /* Usa a cor do texto para a borda */
     border-radius: 8px;
 }
 
 .beneficio-item h3 {
-    color: var(--tertiary-color);
+    color: #dc3545; /* Vermelho fixo para destaque */
     font-size: 1.4em;
     margin-top: 0;
 }
@@ -150,7 +109,7 @@
 .coluna-categoria {
     padding: 20px;
     border-radius: 8px;
-    color: #fff;
+    color: #fff; /* O texto deve ser sempre branco/claro nas caixas coloridas */
 }
 
 .coluna-categoria h3 {
@@ -160,7 +119,7 @@
     margin-top: 0;
 }
 
-/* Cores específicas das colunas: mantidas para contraste */
+/* Cores específicas das colunas: FIXAS */
 .formal { background-color: #007bff; }
 .nao-formal { background-color: #ffc107; color: #333; }
 .nao-formal h3 { color: #333; border-color: rgba(0, 0, 0, 0.3); }
@@ -176,7 +135,7 @@
 .guia-dinamica {
     text-align: center;
     font-size: 1.2em;
-    color: var(--tertiary-color);
+    color: #dc3545;
     margin-top: 40px;
 }
 
@@ -186,36 +145,35 @@
 }
 
 .dica-item {
-    border-left: 4px solid var(--primary-color);
+    border-left: 4px solid #0056b3;
     padding: 2px 10px;
     margin-bottom: 20px;
-    background-color: var(--light-bg-color);
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo sutil */
     border-radius: 0 5px 5px 0;
     font-size: .8em;
 }
 
 .dica-item h4 {
     margin-top: 0;
-    color: var(--primary-color);
+    color: #0056b3;
 }
 
 .quem-deu {
     display: block;
     text-align: right;
     font-style: italic;
-    color: var(--secondary-text-color);
-    font-size: 0.9em;
+    /* Deixe a cor herdar para o contraste */
 }
 
 /* Slide 6 e 7: Dinâmica */
 .subtitulo-dinamica {
-    color: var(--secondary-text-color);
+    /* Deixe a cor herdar para o contraste */
     font-size: 1.5em;
     margin-bottom: 40px;
 }
 
 .instrucoes-dinamica {
-    background-color: var(--light-bg-color);
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo sutil */
     padding: 25px;
     border-radius: 10px;
 }
@@ -223,7 +181,7 @@
 .tempo-dinamica {
     text-align: center;
     font-size: 1.3em;
-    color: var(--tertiary-color);
+    color: #dc3545;
     margin-top: 20px;
 }
 
@@ -241,7 +199,7 @@
 
 .numero-passo {
     display: inline-block;
-    background-color: var(--primary-color);
+    background-color: #0056b3;
     color: #fff;
     width: 50px;
     height: 50px;
@@ -254,7 +212,7 @@
 
 .regras-dinamica {
     margin-top: 40px;
-    border-top: 1px dashed var(--border-color);
+    border-top: 1px dashed currentColor;
     padding-top: 15px;
     text-align: center;
 }
@@ -262,14 +220,14 @@
 .prompt-exemplos {
     font-size: 0.9em;
     font-style: italic;
-    color: var(--secondary-text-color);
+    /* Deixe a cor herdar para o contraste */
 }
 
 /* Slide 8: Compartilhamento */
 .convite-compartilhamento {
     font-size: 1.5em;
     font-weight: bold;
-    color: var(--secondary-color);
+    color: #28a745;
     margin: 40px 0;
     text-align: center;
 }
@@ -296,7 +254,7 @@
 /* Slide 9: Encerramento */
 .agradecimento {
     font-size: 3em;
-    color: var(--primary-color);
+    color: #007bff;
     text-align: center;
     margin-bottom: 30px;
 }
@@ -310,10 +268,12 @@
 
 .proximos-passos {
     text-align: center;
+    /* Manter fundo amarelo fixo (funciona como alerta em ambos temas) */
     background-color: #fff3cd; 
     border: 1px solid #ffeeba;
     padding: 20px;
     border-radius: 5px;
+    color: #333; /* Texto escuro para contraste com o amarelo claro */
 }
 
 .proximos-passos h3 {
@@ -326,40 +286,4 @@
     margin-top: 40px;
     text-align: center;
     font-size: 1.1em;
-}
-
-/* ========================================================= */
-/* AJUSTES DE CONTRASTE PARA O TEMA ESCURO (CORREÇÕES FINAIS) */
-/* ========================================================= */
-
-/* Garante que o texto principal nas caixas seja CLARO no dark mode */
-.dark-theme.reveal .pergunta-interativa p,
-.dark-theme.reveal .dica-item p,
-.dark-theme.reveal .citacao-definicao {
-    color: var(--text-color) !important; 
-}
-
-/* Garante que o texto secundário (cinza) use a cor CLARA no dark mode */
-.dark-theme.reveal .pergunta-interativa .resposta,
-.dark-theme.reveal .quem-deu,
-.dark-theme.reveal .prompt-exemplos,
-.dark-theme.reveal .subtitulo-dinamica {
-    color: var(--secondary-text-color) !important;
-}
-
-/* Garante que os títulos h4 nas caixas de dicas usem a cor de destaque principal (clara) */
-.dark-theme.reveal .dica-item h4 {
-    color: var(--primary-color) !important;
-}
-
-/* Aplica o fundo escuro nas caixas que estavam claras (gancho, instrucoes) */
-.dark-theme.reveal .pergunta-interativa,
-.dark-theme.reveal .instrucoes-dinamica {
-    background-color: var(--light-bg-color) !important; /* #2a2a2a */
-    border-color: var(--border-color);
-}
-
-/* Garante que o texto dentro dos Próximos Passos (fundo amarelo) seja ESCURO */
-.dark-theme.reveal .proximos-passos {
-    color: #333 !important; 
 }
