@@ -185,6 +185,11 @@
     margin-top: 20px;
 }
 
+.tempo-dinamica a {
+    text-decoration: underline;
+    text-align: center;
+}
+
 .instrucoes-lista-passos {
     display: flex;
     justify-content: space-around;
@@ -269,7 +274,7 @@
 .proximos-passos {
     text-align: center;
     /* Manter fundo amarelo fixo (funciona como alerta em ambos temas) */
-    background-color: #fff3cd; 
+    background-color: #e6d11570; 
     border: 1px solid #ffeeba;
     padding: 20px;
     border-radius: 5px;
@@ -277,7 +282,7 @@
 }
 
 .proximos-passos h3 {
-    color: #856404;
+    color: #2b2a29;
     border-bottom: 1px solid #ffeeba;
     padding-bottom: 5px;
 }
